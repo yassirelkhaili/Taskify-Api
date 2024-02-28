@@ -1,0 +1,810 @@
+openapi: 3.0.0
+info:
+  title: Taskify Api
+  description: >-
+    # 🚀 Get started here
+
+
+    This template guides you through CRUD operations (GET, POST, PUT, DELETE),
+    variables, and tests.
+
+
+    ## 🔖 **How to use this Taskify Api**
+
+
+    #### **Step 1: Send requests**
+
+
+    RESTful APIs allow you to perform CRUD operations using the POST, GET, PUT,
+    and DELETE HTTP methods.
+
+
+    This collection contains each of these
+    [request](https://learning.postman.com/docs/sending-requests/requests/)
+    types. Open each request and click "Send" to see what happens.
+
+
+    #### **Step 2: View responses**
+
+
+    Observe the response tab for status code (200 OK), response time, and size.
+
+
+    #### **Step 3: Send new Body data**
+
+
+    Update or add new data in "Body" in the POST request. Typically, Body data
+    is also used in PUT request.
+
+
+    ```
+
+    {
+        "name": "Add your name in the body"
+    }
+
+     ```
+
+    #### **Step 4: Update the variable**
+
+
+    Variables enable you to store and reuse values in Postman. We have created a
+    [variable](https://learning.postman.com/docs/sending-requests/variables/)
+    called `base_url` with the sample request
+    [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me).
+    Replace it with your API endpoint to customize this collection.
+
+
+    #### **Step 5: Add tests in the "Tests" tab**
+
+
+    Tests help you confirm that your API is working as expected. You can write
+    test scripts in JavaScript and view the output in the "Test Results" tab.
+
+
+    <img
+    src="https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n">
+
+
+    ## 💪 Pro tips
+
+
+    - Use folders to group related requests and organize the collection.
+
+    - Add more
+    [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)
+    in "Tests" to verify if the API works as expected and execute workflows.
+        
+
+    ## 💡Related templates
+
+
+    [API testing
+    basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  
+
+    [API
+    documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  
+
+    [Authorization
+    methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+paths:
+  /tasks/202:
+    put:
+      tags:
+        - General
+      summary: Update Task
+      description: >-
+        This is a PUT request and it is used to overwrite an existing piece of
+        data. For instance, after you create an entity with a POST request, you
+        may want to modify that later. You can do that using a PUT request. You
+        typically identify the entity being updated by including an identifier
+        in the URL (eg. `id=1`).
+
+
+        A successful PUT request typically returns a `200 OK`, `201 Created`, or
+        `204 No Content` response code.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                title:
+                  type: string
+                  example: 'new title '
+                description:
+                  type: string
+                  example: new description213123
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6Ilp0MlI3VGRtV1BROThzK2lFeGxPV0E9PSIsInZhbHVlIjoiVUFjQkRSMjhTUUJaeHFjd3VwekZSN09Cbkc1SHRvRU01RzhJbnc1KzZIM0ZRK1JnckdwcmhUSktHdTNvUEFYd0pXM3NUWnY3bytYUFlKK3VPTko4L2dhRGZWWktlWXRtK1ZaZGdzME1WRlgzTXZDaW5qT0hDQWl1SDF6RkJDaDYiLCJtYWMiOiJlZjRlNzBhYTkzOTA0NGYzMTJhMGFmYjE0NmVmNzg3ZDUyOGFlYjM1NzNiMGIwN2MyZTMzZGI4MGZlMTg4ZTM5IiwidGFnIjoiIn0===
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 00:22:07 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6InhDMFdGbEJpSXVhUEJicldxUUxySnc9PSIsInZhbHVlIjoiR0Y4dmRLS21keGZ2Z2JmUEg3Undabmk4OWJRenFQeHhyQkYxVmdvNUVOY3BqdHlwTFBaVWtONkc0enR6UlBCeDlSWlEybUF4ZzhNd3A2SHBiL056alRsYTU2Zkd5RU1teTdtYVFlYU9CTjZ0eUZESjBRazRUdmxXSDM5MkNvTlgiLCJtYWMiOiIyM2ZmMTUwN2JlOGQ3Y2I5MjRlMDgzMjY4ZmEyYzI3MjMwOWVmMzllMzA0MjJmMDAzNzAyNDMzMjc2M2Q0MjI0IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 02:22:07 GMT; Max-Age=7200; path=/;
+                  domain=localhost; httponly; samesite=lax
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Task updated successfully
+                data:
+                  id: 202
+                  title: new title
+                  description: new description213123
+                  status: pending
+                  due_date: '2024-04-13'
+                  priority: medium
+                  user_id: 28
+                  created_at: '2024-02-28T00:15:01.000000Z'
+                  updated_at: '2024-02-28T00:22:07.000000Z'
+                  deleted_at: null
+    get:
+      tags:
+        - General
+      summary: Show Task
+      description: >-
+        This is a GET request and it is used to "get" data from an endpoint.
+        There is no request body for a GET request, but you can use query
+        parameters to help specify the resource you want data on (e.g., in this
+        request, we have `id=1`).
+
+
+        A successful GET response will have a `200 OK` status, and should
+        include some kind of response body - for example, HTML web content or
+        JSON data.
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6ImRlcDlSUXcyM1dOVGdlc2dqLzA2UHc9PSIsInZhbHVlIjoid09RdjF1SWVFRjhFbUkxRWVwME5QREZ4cm1Kdk5pckJGa3lmckxyZlJjSUdOdDU1TmZBSUxLSmF6TDRlaGFkVU11TU9HSjF0Z2pjNnp6dFNsWHJMWGFxaDNpRjk3MU96U0kxOXRIdm56Y3htTDBuc1ZPNTh6YzluME5YSHh6NWQiLCJtYWMiOiI2ZTUzYjY1OWMxY2RjNzE1NjIwMTI4ZGQxNTBkYzkwYTRlMjI0MTVkYTgzOTRiMjRkOTRhYjMxYWI2YjgxN2M5IiwidGFnIjoiIn0
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 00:22:23 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6IjkzWjBZNXVXTndUbUY1cEJWMzc3THc9PSIsInZhbHVlIjoicTNJNzJmNXlLMXN3ZFpKdmMvRTN1SU5RY1dSQS9aZ0JacTNzWlF0S09abmlYTGlvaVNMZkVhMUR1cEYySzV4Z0liNkdES0tZRkFNSmgvTVd1VUcxUm0vNnJWQjZ3L2lremxQbVJPeFZPaHpLR0FnOU5HT3JNaStraUJLZmxsUlAiLCJtYWMiOiJhNzQ3NzUxOTUzNTI0YjFlOGU2YzcxYTBiN2FlZmU2ZDBmM2VkMzUzN2ZkOTU1MmNkMDA5NzQ3NTExMzhkMjQ4IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 02:22:23 GMT; Max-Age=7200; path=/;
+                  domain=localhost; httponly; samesite=lax
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Task fetched successfully
+                data:
+                  id: 202
+                  title: new title
+                  description: new description213123
+                  status: pending
+                  due_date: '2024-04-13'
+                  priority: medium
+                  user_id: 28
+                  created_at: '2024-02-28T00:15:01.000000Z'
+                  updated_at: '2024-02-28T00:22:07.000000Z'
+                  deleted_at: null
+  /tasks:
+    get:
+      tags:
+        - General
+      summary: Get Tasks
+      description: >-
+        This is a GET request and it is used to "get" data from an endpoint.
+        There is no request body for a GET request, but you can use query
+        parameters to help specify the resource you want data on (e.g., in this
+        request, we have `id=1`).
+
+
+        A successful GET response will have a `200 OK` status, and should
+        include some kind of response body - for example, HTML web content or
+        JSON data.
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6ImRlcDlSUXcyM1dOVGdlc2dqLzA2UHc9PSIsInZhbHVlIjoid09RdjF1SWVFRjhFbUkxRWVwME5QREZ4cm1Kdk5pckJGa3lmckxyZlJjSUdOdDU1TmZBSUxLSmF6TDRlaGFkVU11TU9HSjF0Z2pjNnp6dFNsWHJMWGFxaDNpRjk3MU96U0kxOXRIdm56Y3htTDBuc1ZPNTh6YzluME5YSHh6NWQiLCJtYWMiOiI2ZTUzYjY1OWMxY2RjNzE1NjIwMTI4ZGQxNTBkYzkwYTRlMjI0MTVkYTgzOTRiMjRkOTRhYjMxYWI2YjgxN2M5IiwidGFnIjoiIn0
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 00:21:35 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6Ik5zQkJHYWRMYzNRV0NHRHJjRUR6RWc9PSIsInZhbHVlIjoiNFNCZDVQRWxyc3NrR0xyN3N1RHlhL0w0SVBMZlpnaWErNmdzRlY5cUMyaXRkZmFNUmhpR3piRWFUQXV3amFPbWViTmx3TENLSzQ0Y2h3eXVmYlA5bEpSUUhBVXk4S0xSV0lEWTdEbnhJWkV3SWh4d3BjSko3dGlLdHhCN3dYc04iLCJtYWMiOiJlMTFiMTJmZTdmM2FiMDI2ZTQzNzIzMjZiZjMwZGEzNjJkMTk3OTYwOTg2NzdmMGYxNDI1NGM5NzRkMjQ5ZWI5IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 02:21:35 GMT; Max-Age=7200; path=/;
+                  domain=localhost; httponly; samesite=lax
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Tasks fetched successfully
+                data:
+                  - id: 202
+                    title: random task
+                    description: random description
+                    status: pending
+                    due_date: '2024-04-13'
+                    priority: medium
+                    user_id: 28
+                    created_at: '2024-02-28T00:15:01.000000Z'
+                    updated_at: '2024-02-28T00:15:01.000000Z'
+                    deleted_at: null
+  /api/tasks:
+    post:
+      tags:
+        - General
+      summary: Post Task
+      description: >-
+        This is a POST request, submitting data to an API via the request body.
+        This request submits JSON data, and the data is reflected in the
+        response.
+
+
+        A successful POST request typically returns a `200 OK` or `201 Created`
+        response code.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                title:
+                  type: string
+                  example: 'task token '
+                description:
+                  type: string
+                  example: 'random '
+                status:
+                  type: string
+                  example: pending
+                due_date:
+                  type: string
+                  example: '2024-04-13'
+                priority:
+                  type: string
+                  example: low
+                user_id:
+                  type: integer
+                  example: '28'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6Ik9JZXErME1DTE8zQjM2T0ZPNExiTlE9PSIsInZhbHVlIjoidVBsOHJQaVJJWVZUSG9ac2VKbW1tRHl4eHI0Z2Voa2hJWGsydXpkOTJ6dU1TZnU2NDNYM1dDNjdQeHM5Nm03VUpCRFFGVXlrVWR0N2x3a0VudU5NclNsUGlsSjM2WXpyb0cwU3ErcWdKY21RQjkwQ3dYT3B2cGJjOE13NEdMV3QiLCJtYWMiOiIwNDllNjQxNTA1ZDkxZDk3NjA4NzQ1NTIxMzY4ZDI2ZDBhZGQxZDBjNjVkOTk1MjY2ODMyNmVmYTAyODJkZjA3IiwidGFnIjoiIn0
+      responses:
+        '201':
+          description: Created
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:14:10 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Task created successfully
+                data:
+                  title: task token
+                  description: random
+                  status: pending
+                  due_date: '2024-04-13'
+                  priority: low
+                  user_id: '28'
+                  updated_at: '2024-02-28T11:14:10.000000Z'
+                  created_at: '2024-02-28T11:14:10.000000Z'
+                  id: 204
+  /tasks/2:
+    delete:
+      tags:
+        - General
+      summary: Delete Task
+      description: >-
+        This is a DELETE request, and it is used to delete data that was
+        previously created via a POST request. You typically identify the entity
+        being updated by including an identifier in the URL (eg. `id=1`).
+
+
+        A successful DELETE request typically returns a `200 OK`, `202
+        Accepted`, or `204 No Content` response code.
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6Ind5SjRQUWJFWFpBV093aTZGWTBDVHc9PSIsInZhbHVlIjoiZHBYVkc5VHpNT3EwT28wRkJ0N01tUlh2UHUyM3RnZUg2VzlEZEUwcWxWREsvVjBEM0w5bHQxeEpYUmVwaWVuVWxsM0hNRmtCbXBwSFhNWjlUNWIvWHdOcEdtTDlCZ3hvOFhnRGtlWTVWRGY5V0pIaG1ldVp1YVBreXZxT0VoeG8iLCJtYWMiOiJkYTQ2ZDIwN2UzYWNiNjgwNGYxYzU3N2Y2NWM0ZmRiOGVjMjhlN2VlMmRhMWM0YTNhNzNlNzVmOWE3N2I0MjJmIiwidGFnIjoiIn0=
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Tue, 27 Feb 2024 23:21:52 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6IlgvMVBQTEFNSncvMWQ3V1N4c1NxbUE9PSIsInZhbHVlIjoici9CUkR2TVlMcHhHV21Ha2FncWJnUUlNVjR3QVhqQS93OGNoSmtGTGMySERaQzd5TTA3bmVXeGVXVmRWRjhFdDdqZUhXSXRtaDB6Z0UzdEF5QkJKTCsrd0xnb09kM2U5emlOVlc1VWgrdUhNam4rU01nY1VXZXdqaVZ4VUcrNE4iLCJtYWMiOiI4MDIxY2ZjOTgzYzAwZjY1OWMwZjc1NDhhZjkzNWMzNmRjNDA4NmU0YzdjMDM4NzkzNDU1MjhmNTUxYmJjOGM3IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 01:21:52 GMT; Max-Age=7200; path=/;
+                  domain=localhost; httponly; samesite=lax
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Task deleted successfully
+                data: null
+  /sanctum/csrf-cookie:
+    get:
+      tags:
+        - General
+      summary: Get XSRF Token
+      description: >-
+        This is a DELETE request, and it is used to delete data that was
+        previously created via a POST request. You typically identify the entity
+        being updated by including an identifier in the URL (eg. `id=1`).
+
+
+        A successful DELETE request typically returns a `200 OK`, `202
+        Accepted`, or `204 No Content` response code.
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:02:04 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6IklxTUpoWEJneDVRbVdxQ0JVZm1KQmc9PSIsInZhbHVlIjoiV3RKNWoxOTlFR09HNFM0ODIxb0tFRDJCQWFnMmR1U2FFOFVhaDhOMnAxT05qUTRrai9ZbllNSFIyOTNPOGNQRHJEWUF6Y1N0MTdXOENHVDhBTGZoREY3ODl6cXVaQmVIeWxVdVVxWGxEWWtPbDBndkxJdEM2bWZLMUt3WjJadWYiLCJtYWMiOiI4NzBjYzA5NGNjMDcxZTUyOGRiODIxODk5ZjI1MzViMzFhNTMwYzY5NTU1ZmQ4Njc2NmM2ZGQyNzBjYTdkOTE4IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 13:02:04 GMT; Max-Age=7200; path=/;
+                  httponly; samesite=lax
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/login:
+    post:
+      tags:
+        - General
+      summary: User Login
+      description: >-
+        This is a DELETE request, and it is used to delete data that was
+        previously created via a POST request. You typically identify the entity
+        being updated by including an identifier in the URL (eg. `id=1`).
+
+
+        A successful DELETE request typically returns a `200 OK`, `202
+        Accepted`, or `204 No Content` response code.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: elkhailiyassir@gmail.com
+                password: Password32145?
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6Ik9JZXErME1DTE8zQjM2T0ZPNExiTlE9PSIsInZhbHVlIjoidVBsOHJQaVJJWVZUSG9ac2VKbW1tRHl4eHI0Z2Voa2hJWGsydXpkOTJ6dU1TZnU2NDNYM1dDNjdQeHM5Nm03VUpCRFFGVXlrVWR0N2x3a0VudU5NclNsUGlsSjM2WXpyb0cwU3ErcWdKY21RQjkwQ3dYT3B2cGJjOE13NEdMV3QiLCJtYWMiOiIwNDllNjQxNTA1ZDkxZDk3NjA4NzQ1NTIxMzY4ZDI2ZDBhZGQxZDBjNjVkOTk1MjY2ODMyNmVmYTAyODJkZjA3IiwidGFnIjoiIn0===
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:41:40 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6IlRjQit6NHdXMHo2aVlUc0ljZm9pdmc9PSIsInZhbHVlIjoiZmhhTW1icDNFLy9sUG9FTVZlQ3RodkNncndRTDZOd3lMQ1JDaXg4c2hnZzNWZ0lYQjRzMVZ1TlhkSDZVWmdYRENHNUZkbVJQZ3lRRDh3UnRmTlBUckFTbStOMlJHOEFMTE9zM1JBS2hYWG9veXp0cnFsemlFcXpuU05pOXcvYUgiLCJtYWMiOiIxYjY1NTRiNzkwYzRmZGM1NjFkMGVhOWViMDg2NDM4NmYyNGY2M2E1MmQ0MDc1NDY4ZjU1NTA3MTVlY2NmNjdlIiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 13:41:40 GMT; Max-Age=7200; path=/;
+                  httponly; samesite=lax
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: success
+                message: Login was succesful
+                data: 13|S5EnhcaE9A5BV6bE6E4ka9NJmVcle4RVQozXGnpW2c6ddb68
+  /logout:
+    post:
+      tags:
+        - General
+      summary: User Logout
+      description: >-
+        This is a DELETE request, and it is used to delete data that was
+        previously created via a POST request. You typically identify the entity
+        being updated by including an identifier in the URL (eg. `id=1`).
+
+
+        A successful DELETE request typically returns a `200 OK`, `202
+        Accepted`, or `204 No Content` response code.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example: ''
+      parameters:
+        - name: X-XSRF-TOKEN
+          in: header
+          schema:
+            type: string
+          example: >-
+            eyJpdiI6InNoN2JTOERId1Q2N2o0Wi80RWZidFE9PSIsInZhbHVlIjoiVWw5S1RUSGNscU9ibHA5NUwwMCtIbDBHcUVCT2wzVmxNNzRKTVNiOVptdkdDdTNUbzAwMjVkYUtJOCtsUUFXLzI2bVpnWU16SDZxSDZscnViVVcrSllMTWI0OFczN0E5NDRHWWxERnhjR3FsNVZlQ2hKM3UzV1EycDJrcDVOdkwiLCJtYWMiOiJkMTcwOTk1ZWY1ZTkzNGYxZWUxMTVkYTJmYzM1ZmZjNzNjMWIzZjg5NTEyY2Q5NTYyMDlkOTY3M2YxZjFkNjczIiwidGFnIjoiIn0=
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:41:23 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Set-Cookie:
+              schema:
+                type: string
+                example: >-
+                  laravel_session=eyJpdiI6InNXalo3eDloSUFTWG9UZHdLQXg3SUE9PSIsInZhbHVlIjoiRzM1RWFod0I0ei9kL0FCc1I0ampYR3VUdGdlWUMyZWtFSHdBbGRIMHV1bDhSVzZ1am5ZUThWb2ZtejhvdzZnaGpvTHZhNW4zV0FUbXU0VDRDSVo4ZG1sMVZjSWFFQVgxdFh2bTdsb2lEQUJmQW13c2thSVErUkNnY3F5Q2NCZGMiLCJtYWMiOiI5MDg3MDBhZTczMjVmMzhhZWUzMjkwMGZjNDI0Nzg1MmNmZTZiNGM2MjY1NmQzM2M2OTA5ZDQ5OGMxM2FhMjU4IiwidGFnIjoiIn0%3D;
+                  expires=Wed, 28 Feb 2024 13:41:23 GMT; Max-Age=7200; path=/;
+                  httponly; samesite=lax
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /api/user:
+    get:
+      tags:
+        - General
+      summary: Check User Login
+      description: >-
+        This is a DELETE request, and it is used to delete data that was
+        previously created via a POST request. You typically identify the entity
+        being updated by including an identifier in the URL (eg. `id=1`).
+
+
+        A successful DELETE request typically returns a `200 OK`, `202
+        Accepted`, or `204 No Content` response code.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Host:
+              schema:
+                type: string
+                example: localhost:8000
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:36:00 GMT
+            Connection:
+              schema:
+                type: string
+                example: close
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.1.10
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '60'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '59'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: http://localhost:3000
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 28
+                name: bezasa
+                email: elkhailiyassir@gmail.com
+                email_verified_at: null
+                created_at: '2024-02-27T08:57:51.000000Z'
+                updated_at: '2024-02-27T08:57:51.000000Z'
