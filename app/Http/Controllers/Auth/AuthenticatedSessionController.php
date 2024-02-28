@@ -21,7 +21,7 @@ class AuthenticatedSessionController extends Controller
 
         // $request->session()->regenerate();
         $user = Auth::user();
-        $token = $user->createToken($user->name)->plainTextToken;
+            $token = $user->createToken('YourAppNameToken')->plainTextToken;
         return $this->successResponse($token, "Login was succesful", 200);
     }
 
@@ -30,11 +30,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): Response
     {
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
+        $request->user()->currentAccessToken()->delete();
 
         return response()->noContent();
     }

@@ -15,7 +15,7 @@ protected string $base_url = 'http://localhost:8000';
      */
     public function test_authenticates_user_and_returns_a_token()
     {
-        $response = $this->postJson("{$this->base_url}/login", [
+        $response = $this->postJson("{$this->base_url}/api/login", [
                 "email"=> "johndoe@example.com",
                 "password" => "Password123!"
         ]);
@@ -44,7 +44,7 @@ protected string $base_url = 'http://localhost:8000';
     public function test_creates_a_new_task()
     {
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19',
+            'Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9',
         ])->postJson('/api/tasks', [
             'title' => 'task token',
             'description' => 'random',
@@ -64,11 +64,11 @@ protected string $base_url = 'http://localhost:8000';
      */
     public function test_updates_an_existing_task()
     {
-        $taskId = 12; // Use a valid task ID
+        $taskId = 9; // Use a valid task ID
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19',
+            'Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9',
         ])->putJson("{$this->base_url}/api/tasks/$taskId", [
-            'title' => 'updated title',
+            'title' => 'updated titlesdas',
             'description' => 'updated description',
         ]);
 
@@ -82,9 +82,9 @@ protected string $base_url = 'http://localhost:8000';
      */
     public function test_retrieves_a_single_task()
     {
-        $taskId = 12; // Use a valid task ID
+        $taskId = 9; // Use a valid task ID
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19',
+            'Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9',
         ])->getJson("{$this->base_url}/api/tasks/$taskId");
 
         $response->assertStatus(200)
@@ -98,7 +98,7 @@ protected string $base_url = 'http://localhost:8000';
     public function test_retrieves_all_tasks()
     {
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19',
+            'Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9',
         ])->getJson("{$this->base_url}/api/tasks");
 
         $response->assertStatus(200)
@@ -111,8 +111,8 @@ protected string $base_url = 'http://localhost:8000';
      */
     public function test_deletes_a_task()
     {
-        $taskId = 12; // Use a valid task ID
-        $response = $this->withHeaders(['Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19'])->deleteJson("{$this->base_url}/api/tasks/$taskId");
+        $taskId = 26; // Use a valid task ID
+        $response = $this->withHeaders(['Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9'])->deleteJson("{$this->base_url}/api/tasks/$taskId");
 
         $response->assertStatus(200)
                  ->assertJsonPath('status', 'success')
@@ -125,8 +125,8 @@ protected string $base_url = 'http://localhost:8000';
     public function test_logs_out_the_user()
     {
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer 9|w0ujRSMW1zhhJBKncJm4dRonhyWYG0fGn9rpXxWb28280b19',
-        ])->postJson('/logout', []);
+            'Authorization' => 'Bearer 58|CliZHUDwv1d1D48v3czzj5zy2GhP2l25IOvBIM2p2e5509b9',
+        ])->postJson('/api/logout', []);
 
         $response->assertStatus(204); // No content response expected
     }
