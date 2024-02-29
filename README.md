@@ -56,12 +56,6 @@ A successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No
 >```
 >http://localhost:8000/tasks/202
 >```
-### Headers
-
-|Content-Type|Value|
-|---|---|
-|X-XSRF-TOKEN|eyJpdiI6Ilp0MlI3VGRtV1BROThzK2lFeGxPV0E9PSIsInZhbHVlIjoiVUFjQkRSMjhTUUJaeHFjd3VwekZSN09Cbkc1SHRvRU01RzhJbnc1KzZIM0ZRK1JnckdwcmhUSktHdTNvUEFYd0pXM3NUWnY3bytYUFlKK3VPTko4L2dhRGZWWktlWXRtK1ZaZGdzME1WRlgzTXZDaW5qT0hDQWl1SDF6RkJDaDYiLCJtYWMiOiJlZjRlNzBhYTkzOTA0NGYzMTJhMGFmYjE0NmVmNzg3ZDUyOGFlYjM1NzNiMGIwN2MyZTMzZGI4MGZlMTg4ZTM5IiwidGFnIjoiIn0===|
-
 
 ### Response: 200
 ```json

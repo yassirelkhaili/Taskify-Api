@@ -16,11 +16,11 @@ use App\Http\Controllers\TaskController;
 |
 */
 
+Route::middleware(['auth:sanctum'])->apiResource('tasks', TaskController::class);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::middleware(['auth:sanctum'])->apiResource('tasks', TaskController::class);
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
     ->middleware('guest')
