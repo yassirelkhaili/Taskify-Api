@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Traits\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Repositories\TaskRepositoryInterface;
@@ -32,7 +33,9 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        $task = $this->taskRepository->create($request->all());
+        $requestData = $request->all();
+        $requestData["user_id"] = Auth::user()->id;
+        $task = $this->taskRepository->create($requestData);
         return $this->successResponse($task, "Task created successfully", 201);
     }
 
